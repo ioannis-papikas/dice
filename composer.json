@@ -1,0 +1,38 @@
+{
+    "name": "ipapikas/dice",
+    "description": "Dice allows you to pick an option from a given pool with a given set of probabilities.",
+    "license": "MIT",
+    "support": {
+        "source": "https://github.com/ioannis-papikas/dice",
+        "issues": "https://github.com/ioannis-papikas/dice/issues"
+    },
+    "authors": [
+        {
+            "name": "Ioannis Papikas",
+            "email": "papikas.ioan@gmail.com",
+            "homepage": "https://ipapikas.me"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dice\\": "src/Dice"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dice\\": "tests/Dice"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    }
+}
