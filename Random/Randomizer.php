@@ -17,11 +17,21 @@ namespace Dice\Random;
 interface Randomizer
 {
     /**
+     * @return mixed
+     */
+    public function max();
+
+    /**
+     * @return mixed
+     */
+    public function min();
+
+    /**
      * @param float $min
      * @param float $max
      * @param mixed $seed
      *
      * @return float
      */
-    public function randomize($min, $max, $seed = null);
+    public function next($min, $max, $seed = null);
 }
