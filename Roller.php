@@ -20,7 +20,7 @@ class Roller extends AbstractRoller
     /**
      * @var array
      */
-    private $probabilities = [];
+    protected $probabilities = [];
 
     /**
      * @return array
