@@ -11,7 +11,7 @@
 
 namespace Dice\Tests;
 
-use Dice\Random\MtRand;
+use Dice\Random\MTRand;
 use Dice\Roller;
 use PHPUnit_Framework_TestCase;
 
@@ -33,7 +33,7 @@ class RollerTest extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        $this->roller = new Roller(new MtRand());
+        $this->roller = new Roller(new MTRand());
     }
 
     /**

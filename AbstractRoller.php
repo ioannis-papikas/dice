@@ -57,7 +57,7 @@ abstract class AbstractRoller
         }
 
         // Scale probabilities to have a better precision
-        return $this->getRandomizer()->randomize(1, $this->getMaxRange(), $seed);
+        return $this->getRandomizer()->next(1, $this->getMaxRange(), $seed);
     }
 
     /**

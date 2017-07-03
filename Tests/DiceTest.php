@@ -12,7 +12,7 @@
 namespace Dice\Tests;
 
 use Dice\Dice;
-use Dice\Random\MtRand;
+use Dice\Random\MTRand;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -33,7 +33,7 @@ class DiceTest extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        $this->dice = new Dice(new MtRand());
+        $this->dice = new Dice(new MTRand());
     }
 
     /**
