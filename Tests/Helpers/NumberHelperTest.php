@@ -41,6 +41,21 @@ class NumberHelperTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers \Dice\Helpers\NumberHelper::average
+     * @throws \PHPUnit_Framework_AssertionFailedError
+     */
+    public function testAverage()
+    {
+        // Normal input
+        $this->assertEquals(2, NumberHelper::average([1, 2, 3]));
+        $this->assertEquals(3, NumberHelper::average([3, 3, 3]));
+
+        // Empty input
+        $this->assertFalse(NumberHelper::average([]));
+        $this->assertFalse(NumberHelper::average(null));
+    }
+
+    /**
      * @covers \Dice\Helpers\NumberHelper::numberOfDecimals
      * @throws \Exception
      */

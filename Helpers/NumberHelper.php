@@ -36,6 +36,20 @@ class NumberHelper
     }
 
     /**
+     * @param $array
+     *
+     * @return bool|float
+     */
+    public static function average($array)
+    {
+        if (!is_array($array) || empty($array)) {
+            return false;
+        }
+
+        return array_sum($array) / count($array);
+    }
+
+    /**
      * Count the number of decimals that the given number has.
      *
      * @param $value
