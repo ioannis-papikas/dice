@@ -36,6 +36,8 @@ class NumberHelper
     }
 
     /**
+     * Count the number of decimals that the given number has.
+     *
      * @param $value
      *
      * @return int
@@ -50,8 +52,8 @@ class NumberHelper
 
         if ((int)$value == $value) {
             return 0;
-        } else
+        }
 
-            return strlen($value) - strrpos($value, '.') - 1;
+        return strlen($value) - strrpos($value, '.') - 1;
     }
 }
