@@ -53,7 +53,7 @@ abstract class AbstractRoller
     {
         // Validate probabilities
         if (!$this->validate()) {
-            throw new LogicException(__METHOD__ . ': Probabilities do not sum up to 1.');
+            throw new LogicException(__METHOD__ . ': Probabilities are not valid.');
         }
 
         // Scale probabilities to have a better precision
