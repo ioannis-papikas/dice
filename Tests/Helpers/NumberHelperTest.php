@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Dice\Helpers\Tests;
+namespace Dice\Tests\Helpers;
 
 use Dice\Helpers\NumberHelper;
 use PHPUnit_Framework_TestCase;
