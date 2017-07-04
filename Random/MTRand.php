@@ -11,6 +11,8 @@
 
 namespace Dice\Random;
 
+use InvalidArgumentException;
+
 /**
  * Class MTRand
  * @package Dice\Random
@@ -40,11 +42,13 @@ class MTRand extends AbstractRandomizer
     {
         // Check range
         if ($min < $this->min() || $max > $this->max()) {
-            throw new \InvalidArgumentException(__METHOD__ . ': Given arguments are out of range.');
+            throw new InvalidArgumentException(__METHOD__ . ': Given arguments are out of range.');
         }
 
         // Seed
-        mt_srand($seed);
+        if (!is_null($seed)) {
+            mt_srand($seed);
+        }
 
         // Return a random number
         return mt_rand($min, $max);
