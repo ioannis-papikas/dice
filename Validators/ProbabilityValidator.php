@@ -29,7 +29,7 @@ class ProbabilityValidator extends AbstractValidator
         $diff = abs($sum - 1);
 
         // Check if sum is exactly 1
-        $equal = (double)$sum === 1.0 || $sum === 1;
+        $equal = (float)$sum === 1.0 || $sum === 1;
 
         /**
          * Check if diff is less than a limit
