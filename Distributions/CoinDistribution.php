@@ -21,6 +21,9 @@ use Dice\Validators\Validator;
  */
 class CoinDistribution extends AbstractDistribution
 {
+    const HEAD = 1;
+    const TAIL = 2;
+
     /**
      * @var array|Validator[]
      */
@@ -32,8 +35,8 @@ class CoinDistribution extends AbstractDistribution
     public function getItems()
     {
         return [
-            1 => 1 / 2,
-            2 => 1 / 2,
+            self::HEAD => 1 / 2,
+            self::TAIL => 1 / 2,
         ];
     }
 
