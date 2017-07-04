@@ -65,7 +65,21 @@ abstract class AbstractRoller
      */
     public function validate()
     {
-        return array_sum($this->getProbabilities()) === 1 || array_sum($this->getProbabilities()) === 1.0;
+        // Get sum and diff
+        $sum = array_sum($this->getProbabilities());
+        $diff = abs($sum - 1);
+
+        // Check if sum is exactly 1
+        $equal = (double)$sum === 1.0;
+
+        /**
+         * Check if diff is less than a limit
+         * This functionality helps probabilities that do not
+         * sum up exactly at 1 but there is a margin of error.
+         */
+        $closeToEqual = NumberHelper::floor($diff, 10) == 0;
+
+        return $equal || $closeToEqual;
     }
 
     /**
