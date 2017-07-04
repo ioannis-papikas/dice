@@ -17,7 +17,7 @@ use Dice\Validators\Validator;
  * Class AbstractDistribution
  * @package Dice\Distributions
  */
-abstract class AbstractDistribution implements Validator
+abstract class AbstractDistribution implements Distribution
 {
     /**
      * @var array|Validator[]
