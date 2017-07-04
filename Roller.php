@@ -67,11 +67,12 @@ class Roller implements Validator
         // Check which item was met
         $base = 1;
         foreach ($this->distribution->getItems() as $value => $probability) {
-            if ($random >= $base && $random <= $probability * $maxRange) {
-                return true;
+            $upperBound = $base + (int)NumberHelper::floor($probability * $maxRange);
+            if ($random >= $base && $random <= $upperBound) {
+                return $value;
             }
 
-            $base = $probability * $maxRange + 1;
+            $base = $upperBound + 1;
         }
 
         throw new LogicException(__METHOD__ . ': No item was met. Something is wrong with the implementation. Feel free to report it!');
@@ -102,7 +103,10 @@ class Roller implements Validator
         }
 
         // Convert number of decimals to power of 10 to get maximum number
-        return pow(10, $numbersOfDecimals);
+        $maxRange = pow(10, $numbersOfDecimals);
+
+        // Check given max range against randomizer max range
+        return $maxRange > $this->getRandomizer()->max() ? $this->getRandomizer()->max() : $maxRange;
     }
 
     /**
