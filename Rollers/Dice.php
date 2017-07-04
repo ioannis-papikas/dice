@@ -9,15 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Dice;
-
-use Dice\Helpers\NumberHelper;
+namespace Dice\Rollers;
 
 /**
  * Class Dice
- * @package Dice
+ * @package Dice\Rollers
  */
-class Dice extends Roller
+class Dice extends UnBiasedRoller
 {
     /**
      * @param array $probabilities
@@ -38,13 +36,6 @@ class Dice extends Roller
         // Check if case count is 6 (as a normal dice)
         $six = count($probabilities) === 6;
 
-        // Check if the dice is unbiased
-        $average = NumberHelper::average($this->getProbabilities());
-        $equal = true;
-        foreach ($probabilities as $probability) {
-            $equal = $equal && ($probability == $average);
-        }
-
-        return parent::validate() && $six && $equal;
+        return parent::validate() && $six;
     }
 }

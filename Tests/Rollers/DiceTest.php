@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Dice\Tests;
+namespace Dice\Tests\Rollers;
 
-use Dice\Dice;
 use Dice\Random\MTRand;
+use Dice\Rollers\Dice;
 use PHPUnit_Framework_TestCase;
 
 /**
  * Class DiceTest
- * @package Dice\Tests
+ * @package Dice\TestsRollers
  */
 class DiceTest extends PHPUnit_Framework_TestCase
 {
@@ -37,27 +37,32 @@ class DiceTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers \Dice\AbstractRoller::validate
+     * @covers \Dice\Rollers\Dice::validate
      * @throws \PHPUnit_Framework_AssertionFailedError
      */
     public function testValidate()
     {
         // Set less probabilities
-        $probabilities = [1 => 1];
-        $this->dice->setProbabilities($probabilities);
-        $this->assertFalse($this->dice->validate());
-
-        $probabilities = [1 => 0.5, 2 => 0.5];
+        $probabilities = [
+            1 => 1,
+        ];
         $this->dice->setProbabilities($probabilities);
         $this->assertFalse($this->dice->validate());
 
         $probabilities = [
-            1 => 0.1666666666666667,
-            2 => 0.1666666666666667,
-            3 => 0.1666666666666667,
-            4 => 0.1666666666666667,
-            5 => 0.1666666666666667,
-            6 => 0.1666666666666667,
+            1 => 0.5,
+            2 => 0.5,
+        ];
+        $this->dice->setProbabilities($probabilities);
+        $this->assertFalse($this->dice->validate());
+
+        $probabilities = [
+            1 => 1 / 6,
+            2 => 1 / 6,
+            3 => 1 / 6,
+            4 => 1 / 6,
+            5 => 1 / 6,
+            6 => 1 / 6,
         ];
         $this->dice->setProbabilities($probabilities);
         $this->assertTrue($this->dice->validate());

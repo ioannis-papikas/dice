@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Dice;
+namespace Dice\Rollers;
 
 /**
- * Class AbstractRoller
- * @package Dice
+ * Class Roller
+ * @package Dice\Rollers
  */
 class Roller extends AbstractRoller
 {
