@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Dice;
+namespace Dice\Rollers;
 
 use Dice\Helpers\NumberHelper;
 use Dice\Random\Randomizer;
@@ -18,7 +18,7 @@ use LogicException;
 
 /**
  * Class AbstractRoller
- * @package Dice
+ * @package Dice\Rollers
  */
 abstract class AbstractRoller
 {
