@@ -56,6 +56,25 @@ class NumberHelperTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers \Dice\Helpers\NumberHelper::equal
+     * @throws \PHPUnit_Framework_AssertionFailedError
+     */
+    public function testIsEqual()
+    {
+        // Valid cases
+        $this->assertTrue(NumberHelper::equal(1, 1, 0));
+        $this->assertTrue(NumberHelper::equal(1, 1, 1));
+        $this->assertTrue(NumberHelper::equal(1, 1, 2));
+        $this->assertTrue(NumberHelper::equal(1.1234, 1.1235, 3));
+
+        // Invalid cases
+        $this->assertFalse(NumberHelper::equal(1, 2, 0));
+        $this->assertFalse(NumberHelper::equal(1.123, 2.123, 0));
+        $this->assertFalse(NumberHelper::equal(1.123, 2.123, 3));
+        $this->assertFalse(NumberHelper::equal(1.1234, 1.123, 4));
+    }
+
+    /**
      * @covers \Dice\Helpers\NumberHelper::numberOfDecimals
      * @throws \Exception
      */

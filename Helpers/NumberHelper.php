@@ -50,6 +50,21 @@ class NumberHelper
     }
 
     /**
+     * Checks if of two numbers are equal.
+     * Optional to set a required precision
+     *
+     * @param float $value1
+     * @param float $value2
+     * @param int   $roundPrecision
+     *
+     * @return bool
+     */
+    public static function equal($value1, $value2, $roundPrecision = 0)
+    {
+        return static::floor($value1, $roundPrecision) == static::floor($value2, $roundPrecision);
+    }
+
+    /**
      * Count the number of decimals that the given number has.
      *
      * @param $value
