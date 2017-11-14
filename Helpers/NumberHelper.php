@@ -11,7 +11,7 @@
 
 namespace Dice\Helpers;
 
-use Exception;
+use InvalidArgumentException;
 
 /**
  * Class NumberHelper
@@ -70,13 +70,13 @@ class NumberHelper
      * @param $value
      *
      * @return int
-     * @throws Exception
+     * @throws InvalidArgumentException
      */
     public static function numberOfDecimals($value)
     {
         // Check if value is not numeric
         if (!is_numeric($value)) {
-            throw new Exception(__METHOD__ . ': ' . $value . ' is not a number!');
+            throw new InvalidArgumentException(__METHOD__ . ': ' . $value . ' is not a number!');
         }
 
         if ((int)$value == $value) {
