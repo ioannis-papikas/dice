@@ -12,11 +12,11 @@
 namespace Dice;
 
 use Dice\Distributions\Distribution;
+use Dice\Exceptions\DistributionException;
 use Dice\Helpers\NumberHelper;
 use Dice\Random\Randomizer;
 use Dice\Validators\Validator;
-use Exception;
-use LogicException;
+use InvalidArgumentException;
 
 /**
  * Class Roller
@@ -49,15 +49,14 @@ class Roller implements Validator
     /**
      * @param float|null $seed
      *
-     * @return mixed
-     * @throws Exception
-     * @throws LogicException
+     * @return int|string|null
+     * @throws DistributionException
      */
     public function roll($seed = null)
     {
         // Validate distribution
         if (!$this->validate()) {
-            throw new LogicException(__METHOD__ . ': Distribution are not valid.');
+            throw new DistributionException(__METHOD__ . ': Distribution is not valid.');
         }
 
         // Scale probabilities to have a better precision and get random
@@ -75,7 +74,8 @@ class Roller implements Validator
             $base = $upperBound + 1;
         }
 
-        throw new LogicException(__METHOD__ . ': No item was met. Something is wrong with the implementation. Feel free to report it!');
+        // If no value is met, return null
+        return null;
     }
 
     /**
@@ -88,7 +88,6 @@ class Roller implements Validator
 
     /**
      * @return int
-     * @throws Exception
      */
     public function getMaxRange()
     {
@@ -98,7 +97,11 @@ class Roller implements Validator
         // Get all cases with their probabilities
         $probabilities = $this->getDistribution()->getItems();
         foreach ($probabilities as $probability) {
-            $probabilityNumberOfDecimals = NumberHelper::numberOfDecimals($probability);
+            try {
+                $probabilityNumberOfDecimals = NumberHelper::numberOfDecimals($probability);
+            } catch (InvalidArgumentException $ex) {
+                $probabilityNumberOfDecimals = 1;
+            }
             $numbersOfDecimals = $probabilityNumberOfDecimals > $numbersOfDecimals ? $probabilityNumberOfDecimals : $numbersOfDecimals;
         }
 
