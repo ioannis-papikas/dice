@@ -12,13 +12,13 @@
 namespace Dice\Tests\Helpers;
 
 use Dice\Helpers\NumberHelper;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class NumberHelperTest
  * @package Dice\Helpers\Tests
  */
-class NumberHelperTest extends PHPUnit_Framework_TestCase
+class NumberHelperTest extends TestCase
 {
     /**
      * @covers \Dice\Helpers\NumberHelper::floor
@@ -42,7 +42,8 @@ class NumberHelperTest extends PHPUnit_Framework_TestCase
 
     /**
      * @covers \Dice\Helpers\NumberHelper::average
-     * @throws \PHPUnit_Framework_AssertionFailedError
+     *
+     * @throws \PHPUnit\Framework\AssertionFailedError
      */
     public function testAverage()
     {
@@ -57,7 +58,8 @@ class NumberHelperTest extends PHPUnit_Framework_TestCase
 
     /**
      * @covers \Dice\Helpers\NumberHelper::equal
-     * @throws \PHPUnit_Framework_AssertionFailedError
+     *
+     * @throws \PHPUnit\Framework\AssertionFailedError
      */
     public function testIsEqual()
     {

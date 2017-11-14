@@ -14,13 +14,13 @@ namespace Dice\Tests\Distributions;
 use Dice\Distributions\DiceDistribution;
 use Dice\Random\MTRand;
 use Dice\Roller;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class DiceRollerTest
  * @package Dice\Tests\Distributions
  */
-class DiceRollerTest extends PHPUnit_Framework_TestCase
+class DiceRollerTest extends TestCase
 {
     /**
      * @var Roller
@@ -44,15 +44,8 @@ class DiceRollerTest extends PHPUnit_Framework_TestCase
      */
     public function testRoll()
     {
-        echo $this->roller->roll() . "\n";
-        echo $this->roller->roll() . "\n";
-        echo $this->roller->roll() . "\n";
-        echo $this->roller->roll() . "\n";
-        echo $this->roller->roll() . "\n";
-        echo $this->roller->roll() . "\n";
-        echo $this->roller->roll() . "\n";
-        echo $this->roller->roll() . "\n";
-        echo $this->roller->roll() . "\n";
-        echo $this->roller->roll() . "\n";
+        for ($i = 0; $i < 100; $i++) {
+            $this->assertNotNull($this->roller->roll());
+        }
     }
 }

@@ -12,13 +12,13 @@
 namespace Dice\Tests\Distributions;
 
 use Dice\Distributions\CoinDistribution;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class CoinDistributionTest
  * @package Dice\Tests\Distributions
  */
-class CoinDistributionTest extends PHPUnit_Framework_TestCase
+class CoinDistributionTest extends TestCase
 {
     /**
      * @var CoinDistribution
@@ -37,7 +37,8 @@ class CoinDistributionTest extends PHPUnit_Framework_TestCase
 
     /**
      * @covers \Dice\Distributions\AbstractDistribution::validate
-     * @throws \PHPUnit_Framework_AssertionFailedError
+     *
+     * @throws \PHPUnit\Framework\AssertionFailedError
      */
     public function testValidate()
     {

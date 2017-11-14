@@ -12,13 +12,13 @@
 namespace Dice\Tests\Validators;
 
 use Dice\Validators\UnBiasedValidator;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class UnBiasedValidatorTest
  * @package Dice\Tests\Validators
  */
-class UnBiasedValidatorTest extends PHPUnit_Framework_TestCase
+class UnBiasedValidatorTest extends TestCase
 {
     /**
      * @var UnBiasedValidator
@@ -37,7 +37,8 @@ class UnBiasedValidatorTest extends PHPUnit_Framework_TestCase
 
     /**
      * @covers \Dice\Validators\UnBiasedValidator::validate
-     * @throws \PHPUnit_Framework_AssertionFailedError
+     *
+     * @throws \PHPUnit\Framework\AssertionFailedError
      */
     public function testValidate()
     {
