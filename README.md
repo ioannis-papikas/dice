@@ -176,9 +176,9 @@ use Dice\Distributions\AbstractDistribution;
 use Dice\Validators\ProbabilityValidator;
 
 /**
- * Class SunnyWeatherDistribution
+ * Class RainyWeatherDistribution
  */
-class SunnyWeatherDistribution extends AbstractDistribution
+class RainyWeatherDistribution extends AbstractDistribution
 {
     const SUNNY = 1;
     const RAIN = 2;
@@ -186,7 +186,7 @@ class SunnyWeatherDistribution extends AbstractDistribution
     const SNOW = 4;
 
     /**
-     * SunnyWeatherDistribution constructor.
+     * RainyWeatherDistribution constructor.
      */
     public function __construct()
     {
