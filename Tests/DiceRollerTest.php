@@ -40,7 +40,6 @@ class DiceRollerTest extends TestCase
     /**
      * @covers \Dice\Roller::roll
      * @throws \Exception
-     * @throws \LogicException
      */
     public function testRoll()
     {

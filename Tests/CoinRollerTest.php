@@ -40,7 +40,6 @@ class CoinRollerTest extends TestCase
     /**
      * @covers \Dice\Roller::roll
      * @throws \Exception
-     * @throws \LogicException
      */
     public function testRoll()
     {
