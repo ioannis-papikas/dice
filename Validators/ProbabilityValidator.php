@@ -15,6 +15,8 @@ use Dice\Helpers\NumberHelper;
 
 /**
  * Class ProbabilityValidator
+ * This validator makes sure that the sum of all probabilities is equal to 1.
+ *
  * @package Dice\Validators
  */
 class ProbabilityValidator extends AbstractValidator
