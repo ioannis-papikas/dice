@@ -13,7 +13,6 @@ namespace Dice\Distributions;
 
 use Dice\Validators\ProbabilityValidator;
 use Dice\Validators\UnBiasedValidator;
-use Dice\Validators\Validator;
 
 /**
  * Class DiceDistribution
@@ -22,9 +21,16 @@ use Dice\Validators\Validator;
 class DiceDistribution extends AbstractDistribution
 {
     /**
-     * @var array|Validator[]
+     * CoinDistribution constructor.
      */
-    protected $validators;
+    public function __construct()
+    {
+        // Set validators
+        $this->setValidators([
+            new ProbabilityValidator(),
+            new UnBiasedValidator(),
+        ]);
+    }
 
     /**
      * @return mixed
@@ -39,17 +45,5 @@ class DiceDistribution extends AbstractDistribution
             5 => 1 / 6,
             6 => 1 / 6,
         ];
-    }
-
-    /**
-     * CoinDistribution constructor.
-     */
-    public function __construct()
-    {
-        // Set validators
-        $this->setValidators([
-            new ProbabilityValidator(),
-            new UnBiasedValidator(),
-        ]);
     }
 }
