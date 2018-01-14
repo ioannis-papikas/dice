@@ -2,7 +2,7 @@
 
 Dice allows you to pick an option from a given pool with a given set of probabilities.
 
-[![StyleCI](https://styleci.io/repos/96127861/shield?branch=master)](https://styleci.io/repos/96127861)
+[![StyleCI](https://styleci.io/repos/96127861/shield?branch=1.0)](https://styleci.io/repos/96127861)
 [![Latest Stable Version](https://poser.pugx.org/ipapikas/dice/v/stable?format=flat-square)](https://packagist.org/packages/ipapikas/dice)
 [![Total Downloads](https://poser.pugx.org/ipapikas/dice/downloads?format=flat-square)](https://packagist.org/packages/ipapikas/dice)
 [![License](https://poser.pugx.org/ipapikas/dice/license?format=flat-square)](https://packagist.org/packages/ipapikas/dice)
