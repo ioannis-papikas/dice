@@ -23,10 +23,5 @@
         "psr-4": {
             "Dice\\": ""
         }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.1-dev"
-        }
     }
 }
