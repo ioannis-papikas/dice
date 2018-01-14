@@ -48,11 +48,12 @@ class Roller implements Validator
 
     /**
      * @param float|null $seed
+     * @param mixed      $default
      *
-     * @return int|string|null
+     * @return int|string|null|mixed
      * @throws DistributionException
      */
-    public function roll($seed = null)
+    public function roll($seed = null, $default = null)
     {
         // Validate distribution
         if (!$this->validate()) {
@@ -74,8 +75,8 @@ class Roller implements Validator
             $base = $upperBound + 1;
         }
 
-        // If no value is met, return null
-        return null;
+        // If no value is met, return default value
+        return $default;
     }
 
     /**
