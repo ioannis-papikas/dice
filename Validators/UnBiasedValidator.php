@@ -15,6 +15,12 @@ use Dice\Helpers\NumberHelper;
 
 /**
  * Class UnBiasedValidator
+ * This validator makes sure that all the probabilities are equal and
+ * there are no options that have more probabilities than others.
+ *
+ * You can use this validator in case of standard cases where you always
+ * need the options to have the same probabilities, like a Dice or a Coin.
+ *
  * @package Dice\Validators
  */
 class UnBiasedValidator extends AbstractValidator
@@ -27,15 +33,31 @@ class UnBiasedValidator extends AbstractValidator
         // Get items
         $items = $this->getItems();
 
-        // Check if the roller is unbiased
-        $average = NumberHelper::average($items);
-
-        $unbiased = true;
+        // Keep previous item for comparison
+        $previousValue = null;
         foreach ($items as $value) {
-            $diff = abs($average - $value);
-            $unbiased = $unbiased && NumberHelper::equal($diff, 0, 10);
+            // Skip first value
+            if (is_null($previousValue)) {
+                continue;
+            }
+
+            /**
+             * Check if values are equal.
+             *
+             * Also check if diff is less than a limit,
+             * which is considered equal due to the precision of php
+             */
+            $equal = $value == $previousValue;
+            $diff = abs($value - $previousValue);
+            $unbiased = $equal && NumberHelper::equal($diff, 0, 10);
+            if (!$unbiased) {
+                return false;
+            }
+
+            // Set previous value
+            $previousValue = $value;
         }
 
-        return $unbiased;
+        return true;
     }
 }
