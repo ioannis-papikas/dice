@@ -116,7 +116,7 @@ class Roller implements Validator
     /**
      * @return Distribution
      */
-    public function getDistribution(): Distribution
+    public function getDistribution()
     {
         return $this->distribution;
     }
@@ -132,7 +132,7 @@ class Roller implements Validator
     /**
      * @return Randomizer
      */
-    public function getRandomizer(): Randomizer
+    public function getRandomizer()
     {
         return $this->randomizer;
     }
