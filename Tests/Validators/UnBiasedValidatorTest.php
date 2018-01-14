@@ -42,63 +42,18 @@ class UnBiasedValidatorTest extends TestCase
      */
     public function testValidate()
     {
-        // Set normal probabilities
-        $probabilities = [
-            1 => 1,
-        ];
-        $this->validator->setItems($probabilities);
-        $this->assertTrue($this->validator->validate());
+        // Create a random constant
+        $constant = rand(1, 100) / rand(1, 100);
 
-        $probabilities = [
-            1 => 0.5,
-            2 => 0.5,
-        ];
-        $this->validator->setItems($probabilities);
-        $this->assertTrue($this->validator->validate());
-
-        $probabilities = [
-            1 => 1 / 4,
-            2 => 1 / 4,
-            3 => 1 / 4,
-            4 => 1 / 4,
-        ];
-        $this->validator->setItems($probabilities);
-        $this->assertTrue($this->validator->validate());
-
-        $probabilities = [
-            1 => 1 / 5,
-            2 => 1 / 5,
-            3 => 1 / 5,
-            4 => 1 / 5,
-            5 => 1 / 5,
-        ];
-        $this->validator->setItems($probabilities);
-        $this->assertTrue($this->validator->validate());
-
-        $probabilities = [
-            1 => 1 / 6,
-            2 => 1 / 6,
-            3 => 1 / 6,
-            4 => 1 / 6,
-            5 => 1 / 6,
-            6 => 1 / 6,
-        ];
-        $this->validator->setItems($probabilities);
-        $this->assertTrue($this->validator->validate());
-
-        $probabilities = [
-            1 => 1 / 10,
-            2 => 1 / 10,
-            3 => 1 / 10,
-            4 => 1 / 10,
-            5 => 1 / 10,
-            6 => 1 / 10,
-            7 => 1 / 10,
-            8 => 1 / 10,
-            9 => 1 / 10,
-            10 => 1 / 10,
-        ];
-        $this->validator->setItems($probabilities);
-        $this->assertTrue($this->validator->validate());
+        // Generate probabilities and test
+        $counters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 30, 50, 75, 100];
+        foreach ($counters as $counter) {
+            $probabilities = [];
+            for ($i = 0; $i < $counter; $i++) {
+                $probabilities[] = $constant;
+            }
+            $this->validator->setItems($probabilities);
+            $this->assertTrue($this->validator->validate());
+        }
     }
 }
