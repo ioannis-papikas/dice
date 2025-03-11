@@ -48,16 +48,17 @@ class Roller implements Validator
     }
 
     /**
-     * @param float|null $seed
-     * @param mixed      $default
+     * @param null  $seed
+     * @param mixed $default
+     * @param int   $precision
      *
      * @return int|string|null|mixed
      * @throws DistributionException
      */
-    public function roll($seed = null, $default = null)
+    public function roll($seed = null, $default = null, $precision = 10)
     {
         // Validate distribution
-        if (!$this->validate()) {
+        if (!$this->validate($precision)) {
             throw new DistributionException(__METHOD__ . ': Distribution is not valid.');
         }
 
