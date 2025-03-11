@@ -15,6 +15,7 @@ use Dice\Validators\Validator;
 
 /**
  * Class AbstractDistribution
+ *
  * @package Dice\Distributions
  */
 abstract class AbstractDistribution implements Distribution
@@ -72,16 +73,18 @@ abstract class AbstractDistribution implements Distribution
     }
 
     /**
+     * @param int $precision
+     *
      * @return bool
      */
-    public function validate()
+    public function validate($precision = 10)
     {
         foreach ($this->getValidators() as $validator) {
             // Set items
             $validator->setItems($this->getItems());
 
             // Validate
-            if (!$validator->validate()) {
+            if (!$validator->validate($precision)) {
                 return false;
             }
         }

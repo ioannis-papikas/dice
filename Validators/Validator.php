@@ -13,12 +13,15 @@ namespace Dice\Validators;
 
 /**
  * Interface Validator
+ *
  * @package Dice\Validators
  */
 interface Validator
 {
     /**
+     * @param int $precision
+     *
      * @return bool
      */
-    public function validate();
+    public function validate($precision = 10);
 }

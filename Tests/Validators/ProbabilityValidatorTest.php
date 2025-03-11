@@ -11,11 +11,13 @@
 
 namespace Dice\Tests\Validators;
 
+use Dice\Helpers\NumberHelper;
 use Dice\Validators\ProbabilityValidator;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Class UnBiasedValidatorTest
+ *
  * @package Dice\Tests\Validators
  */
 class ProbabilityValidatorTest extends TestCase
@@ -42,14 +44,15 @@ class ProbabilityValidatorTest extends TestCase
      */
     public function testValidate()
     {
+        $precision = 10;
         $counters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 30, 50, 75, 100];
         foreach ($counters as $counter) {
             $probabilities = [];
             for ($i = 0; $i < $counter; $i++) {
-                $probabilities[] = 1 / $counter;
+                $probabilities[] = NumberHelper::floor(1 / $counter, $precision);
             }
             $this->validator->setItems($probabilities);
-            $this->assertTrue($this->validator->validate());
+            $this->assertTrue($this->validator->validate($precision - 2));
         }
     }
 }
