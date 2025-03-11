@@ -22,9 +22,11 @@ use Dice\Helpers\NumberHelper;
 class ProbabilityValidator extends AbstractValidator
 {
     /**
+     * @param int $precision
+     *
      * @return bool
      */
-    public function validate()
+    public function validate($precision = 10)
     {
         // Get sum and diff
         $sum = array_sum($this->getItems());
@@ -38,7 +40,7 @@ class ProbabilityValidator extends AbstractValidator
          * This functionality helps probabilities that do not
          * sum up exactly at 1 but there is a margin of error.
          */
-        $closeToEqual = NumberHelper::floor($diff, 10) == 0;
+        $closeToEqual = NumberHelper::floor($diff, $precision) == 0;
 
         return $equal || $closeToEqual;
     }

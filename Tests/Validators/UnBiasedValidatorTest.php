@@ -16,6 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * Class UnBiasedValidatorTest
+ *
  * @package Dice\Tests\Validators
  */
 class UnBiasedValidatorTest extends TestCase

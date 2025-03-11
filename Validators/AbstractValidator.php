@@ -13,6 +13,7 @@ namespace Dice\Validators;
 
 /**
  * Class AbstractValidator
+ *
  * @package Dice\Validators
  */
 abstract class AbstractValidator implements ItemValidator
@@ -23,9 +24,11 @@ abstract class AbstractValidator implements ItemValidator
     protected $items;
 
     /**
+     * @param int $precision
+     *
      * @return bool
      */
-    abstract public function validate();
+    abstract public function validate($precision = 10);
 
     /**
      * @param array $items

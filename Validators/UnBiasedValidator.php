@@ -26,9 +26,11 @@ use Dice\Helpers\NumberHelper;
 class UnBiasedValidator extends AbstractValidator
 {
     /**
+     * @param int $precision
+     *
      * @return bool
      */
-    public function validate()
+    public function validate($precision = 10)
     {
         // Get items
         $items = $this->getItems();
@@ -49,7 +51,7 @@ class UnBiasedValidator extends AbstractValidator
              */
             $equal = $value == $previousValue;
             $diff = abs($value - $previousValue);
-            $unbiased = $equal && NumberHelper::equal($diff, 0, 10);
+            $unbiased = $equal && NumberHelper::equal($diff, 0, $precision);
             if (!$unbiased) {
                 return false;
             }

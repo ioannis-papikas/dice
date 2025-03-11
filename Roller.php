@@ -20,6 +20,7 @@ use InvalidArgumentException;
 
 /**
  * Class Roller
+ *
  * @package Dice
  */
 class Roller implements Validator
@@ -80,11 +81,13 @@ class Roller implements Validator
     }
 
     /**
+     * @param int $precision
+     *
      * @return bool
      */
-    public function validate()
+    public function validate($precision = 10)
     {
-        return $this->distribution->validate();
+        return $this->distribution->validate($precision);
     }
 
     /**
